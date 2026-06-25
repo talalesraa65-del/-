@@ -1,0 +1,259 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    .clinic-details-section {
+        direction: rtl;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 60px 20px;
+        background-color: #ffffff;
+        border-bottom: 2px solid #f0f4f8;
+    }
+    .clinic-details-section:nth-child(even) {
+        background-color: #f9fbfd;
+    }
+    .clinic-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .clinic-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        border-bottom: 3px solid #007bff;
+        padding-bottom: 15px;
+        width: fit-content;
+    }
+    .clinic-header i {
+        color: #007bff;
+    }
+    .clinic-header h2 {
+        font-size: 1.8rem;
+        color: #222222;
+        margin: 0;
+    }
+    .services-title {
+        font-size: 1.3rem;
+        color: #444444;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    .services-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 15px;
+    }
+    .services-list li {
+        background: #ffffff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border-right: 4px solid #28a745;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.05rem;
+        color: #555555;
+    }
+    .services-list li i {
+        color: #28a745;
+        font-size: 1.1rem;
+    }
+    .booking-banner-box {
+        background: linear-gradient(135deg, #0056b3, #007bff);
+        border-radius: 15px;
+        padding: 30px 40px;
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
+        margin-top: 20px;
+    }
+    .banner-text-side h3 {
+        font-size: 1.6rem;
+        margin: 0 0 8px 0;
+        font-weight: bold;
+    }
+    .banner-text-side p {
+        margin: 0;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+    .banner-btn-side .action-booking-btn {
+        background-color: #e6f2ff;
+        color: #0056b3;
+        text-decoration: none;
+        padding: 12px 35px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .banner-btn-side .action-booking-btn:hover {
+        background-color: #ffffff;
+        transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+        .services-list { grid-template-columns: 1fr; }
+        .booking-banner-box { flex-direction: column; text-align: center; gap: 20px; }
+    }
+</style>
+
+<div class="all-clinics-wrapper">
+
+    <section id="eyes-clinic" class="clinic-details-section">
+        <div class="clinic-container">
+            <div class="clinic-header">
+                <i class="fas fa-eye fa-2x"></i>
+                <h2>عيادة العيون</h2>
+            </div>
+            <div class="services-title">الخدمات التي تقدمها العيادة:</div>
+            <ul class="services-list">
+                <li><i class="fas fa-check-circle"></i> الفحوصات الشاملة (قياس ضغط العين، فحص قاع العين والشبكية).</li>
+                <li><i class="fas fa-check-circle"></i> تصحيح العيوب الانكسارية (طول وقصر النظر) بالليزر والليزك السطحي.</li>
+                <li><i class="fas fa-check-circle"></i> إجراء عمليات إزالة المياه البيضاء وزرع العدسات المتطورة.</li>
+                <li><i class="fas fa-check-circle"></i> متابعة حالات أمراض الشبكية لمرضى السكري والضغط.</li>
+            </ul>
+            <div class="booking-banner-box">
+                <div class="banner-text-side">
+                    <h3>احجز موعدك الآن</h3>
+                    <p>لأن نظرك يستحق الأفضل، تواصل مع عيادتنا التخصصية للعيون.</p>
+                </div>
+                <div class="banner-btn-side">
+                    <a href="about the complex.html#bookingForm" class="action-booking-btn">إحجز موعدك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="urology-clinic" class="clinic-details-section">
+        <div class="clinic-container">
+            <div class="clinic-header">
+                <i class="fas fa-notes-medical fa-2x"></i>
+                <h2>عيادة المسالك البولية</h2>
+            </div>
+            <div class="services-title">الخدمات التي تقدمها العيادة:</div>
+            <ul class="services-list">
+                <li><i class="fas fa-check-circle"></i> تشخيص وعلاج حصوات الكلى، الحالب، والمثانة بأحدث التقنيات.</li>
+                <li><i class="fas fa-check-circle"></i> علاج أمراض وتضخم البروستاتا ومتابعتها بشكل دوري.</li>
+                <li><i class="fas fa-check-circle"></i> علاج التهابات المجاري البولية الحادة والمزمنة.</li>
+                <li><i class="fas fa-check-circle"></i> الفحص المبكر والسونار الخاص بالجهاز البولي والتناسلي.</li>
+            </ul>
+            <div class="booking-banner-box">
+                <div class="banner-text-side">
+                    <h3>احجز موعدك الآن</h3>
+                    <p>رعاية طبية متكاملة لسلامتك، تواصل مع عيادة المسالك البولية.</p>
+                </div>
+                <div class="banner-btn-side">
+                    <a href="about the complex.html#bookingForm" class="action-booking-btn">إحجز موعدك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="endoscopy-clinic" class="clinic-details-section">
+        <div class="clinic-container">
+            <div class="clinic-header">
+                <i class="fas fa-microscope fa-2x"></i>
+                <h2>عيادة المناظير</h2>
+            </div>
+            <div class="services-title">الخدمات التي تقدمها العيادة:</div>
+            <ul class="services-list">
+                <li><i class="fas fa-check-circle"></i> مناظير الجهاز الهضمي العلوي (المعدة والمريء) لتشخيص التقرحات.</li>
+                <li><i class="fas fa-check-circle"></i> منظار القولون التشخيصي والعلاجي واستئصال الزوائد اللحمية.</li>
+                <li><i class="fas fa-check-circle"></i> تشخيص حالات ارتجاع المريء وجرثومة المعدة بدقة كاملة.</li>
+                <li><i class="fas fa-check-circle"></i> أخذ العينات وتحليلها تحت إشراف نخبة من استشاريي المناظير.</li>
+            </ul>
+            <div class="booking-banner-box">
+                <div class="banner-text-side">
+                    <h3>احجز موعدك الآن</h3>
+                    <p>دقة التشخيص تضمن سرعة الشفاء، تواصل مع عيادة المناظير اليوم.</p>
+                </div>
+                <div class="banner-btn-side">
+                    <a href="about the complex.html#bookingForm" class="action-booking-btn">إحجز موعدك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="neurology-clinic" class="clinic-details-section">
+        <div class="clinic-container">
+            <div class="clinic-header">
+                <i class="fas fa-brain fa-2x"></i>
+                <h2>عيادة أمراض المخ والأعصاب</h2>
+            </div>
+            <div class="services-title">الخدمات التي تقدمها العيادة:</div>
+            <ul class="services-list">
+                <li><i class="fas fa-check-circle"></i> علاج حالات الصداع المزمن والنصفي وآلام الأعصاب الطرفية.</li>
+                <li><i class="fas fa-check-circle"></i> تشخيص ومتابعة حالات الانزلاق الغضروفي وآلام العمود الفقري.</li>
+                <li><i class="fas fa-check-circle"></i> رعاية ومتابعة مرضى السكتات الدماغية والصرع والاضطرابات الحركية.</li>
+                <li><i class="fas fa-check-circle"></i> علاج اضطرابات الذاكرة، آلزهايمر، والتهابات الأعصاب الناتجة عن السكري.</li>
+            </ul>
+            <div class="booking-banner-box">
+                <div class="banner-text-side">
+                    <h3>احجز موعدك الآن</h3>
+                    <p>رعاية متقدمة لسلامة جهازك العصبي، تواصل مع عيادة المخ والأعصاب.</p>
+                </div>
+                <div class="banner-btn-side">
+                    <a href="about the complex.html#bookingForm" class="action-booking-btn">إحجز موعدك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="orthopedics-clinic" class="clinic-details-section">
+        <div class="clinic-container">
+            <div class="clinic-header">
+                <i class="fas fa-bone fa-2x"></i>
+                <h2>عيادة جراحة العظام</h2>
+            </div>
+            <div class="services-title">الخدمات التي تقدمها العيادة:</div>
+            <ul class="services-list">
+                <li><i class="fas fa-check-circle"></i> علاج وتركيب جبائر الكسور، الخلع، وتمزق الأربطة وإصابات الملاعب.</li>
+                <li><i class="fas fa-check-circle"></i> تشخيص وعلاج خشونة المفاصل (الركبة والفخذ) وحقن المفاصل الموضعي.</li>
+                <li><i class="fas fa-check-circle"></i> متابعة وعلاج حالات هشاشة العظام ونقص فيتامين د الكالسيوم.</li>
+                <li><i class="fas fa-check-circle"></i> مناظير المفاصل وجراحات تقويم وتعديل تشوهات العظام.</li>
+            </ul>
+            <div class="booking-banner-box">
+                <div class="banner-text-side">
+                    <h3>احجز موعدك الآن</h3>
+                    <p>استعد حريتك في الحركة بدون ألم، تواصل مع عيادة جراحة العظام.</p>
+                </div>
+                <div class="banner-btn-side">
+                    <a href="about the complex.html#bookingForm" class="action-booking-btn">إحجز موعدك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="internal-clinic" class="clinic-details-section">
+        <div class="clinic-container">
+            <div class="clinic-header">
+                <i class="fas fa-stethoscope fa-2x"></i>
+                <h2>عيادة الباطنة العامة</h2>
+            </div>
+            <div class="services-title">الخدمات التي تقدمها العيادة:</div>
+            <ul class="services-list">
+                <li><i class="fas fa-check-circle"></i> المتابعة الدورية للأمراض المزمنة (ضغط الدم المرتفع، ومرض السكري).</li>
+                <li><i class="fas fa-check-circle"></i> تشخيص وعلاج اضطرابات الغدة الدرقية وغدد الصم المختلفة.</li>
+                <li><i class="fas fa-check-circle"></i> علاج مشاكل فقر الدم (الأنيميا) ونقص المناعة وسوء التغذية.</li>
+                <li><i class="fas fa-check-circle"></i> الفحص الوقائي السنوي الشامل للاطمئنان على وظائف الجسم الحيوية.</li>
+            </ul>
+            <div class="booking-banner-box">
+                <div class="banner-text-side">
+                    <h3>احجز موعدك الآن</h3>
+                    <p>صحتك العامة هي أساس حياتك، احجز فحصك الآن في عيادة الباطنة.</p>
+                </div>
+                <div class="banner-btn-side">
+                    <a href="about the complex.html#bookingForm" class="action-booking-btn">إحجز موعدك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div> 

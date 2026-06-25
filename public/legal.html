@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجمع الطبي - الصفحات التنظيمية</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 12px;
+        }
+        /* إخفاء الصفحات افتراضياً */
+        .page-content {
+            display: none;
+        }
+        /* إظهار الصفحة النشطة فقط */
+        .page-content.active {
+            display: block;
+        }
+        h1 {
+            color: #007bff;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        ul {
+            padding-right: 20px;
+            line-height: 2;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #fafafa;
+        }
+        .save-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .save-btn:hover {
+            background-color: #218838;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 1. محتوى سياسة الخصوصية -->
+        <div id="privacy-page" class="page-content">
+            <h1>سياسة الخصوصية</h1>
+            <p>مرحباً بك في المنظومة الإلكترونية للمجمع الطبي. نحن نلتزم بحماية بياناتك الشخصية والطبية بأعلى معايير الأمان الممكنة:</p>
+            <ul>
+                <li>يتم تشفير كافة بيانات الحجوزات والتاريخ المرضي بالكامل لضمان سريتها التامة عن أي مستخدم آخر.</li>
+                <li>لا يتم مشاركة رقم الهاتف الخاص بالحساب أو بيانات المريض الشخصية مع أي جهات خارجية أو إعلانية.</li>
+                <li>نستخدم بيانات التواصل فقط لإرسال مواعيد تأكيد الحجز أو التنبيهات الطبية الطارئة.</li>
+            </ul>
+        </div>
+
+        <!-- 2. محتوى شروط الخدمة -->
+        <div id="terms-page" class="page-content">
+            <h1>شروط وأحكام الخدمة</h1>
+            <p>باستخدامك لمنظومة الحجز والخدمات الخاصة بالمجمع الطبي، فإنك توافق على الالتزام بالشروط والسياسات التالية:</p>
+            <ul>
+                <li>يجب إدخال بيانات المريض بشكل دقيق وصحيح (الاسم الرباعي ورقم الهاتف النشط) لتفادي إلغاء الحجز تلقائياً من الإدارة.</li>
+                <li>يمكن للمريض تعديل موعد الكشف أو إلغاؤه تماماً من خلال حسابه قبل الموعد بـ 24 ساعة كحد أدنى.</li>
+                <li>يرجى التواجد في مقر المجمع الطبي قبل الموعد المحدد للكشف بـ 15 دقيقة على الأقل لتأكيد الحضور وتخليص الأوراق في مكتب الاستقبال.</li>
+            </ul>
+        </div>
+
+        <!-- 3. محتوى الإعدادات -->
+        <div id="settings-page" class="page-content">
+            <h1>إعدادات الحساب الشخصي</h1>
+            <p style="color: #666; margin-bottom: 25px;">يمكنك تعديل بيانات حسابك وتأمينها من هنا:</p>
+            <form>
+                <div class="form-group">
+                    <label>تعديل رقم الهاتف الحالي:</label>
+                    <input type="text" placeholder="01xxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور الحالية للتأكيد:</label>
+                    <input type="password" placeholder="******">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور الجديدة:</label>
+                    <input type="password" placeholder="******">
+                </div>
+                <button type="button" class="save-btn" onclick="alert('تم حفظ التعديلات بنجاح')">حفظ التغييرات الجديدة</button>
+            </form>
+        </div>
+
+        <!-- زر العودة الثابت أسفل الصفحات -->
+        <a href="index.html" class="back-btn">&#8594; العودة للموقع الرئيسي للحجز</a>
+    </div>
+
+    <!-- السكريبت المسؤول عن قراءة الرابط وإظهار الجزء المطلوب فقط -->
+    <script>
+        function showRequestedPage() {
+            // قراءة المعامل المكتوب في الرابط (privacy أو terms أو settings)
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = urlParams.get('page');
+
+            // إخفاء كل الصفحات أولاً
+            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
+
+            // إظهار الصفحة المطلوبة بناءً على الرابط
+            if (page === 'privacy') {
+                document.getElementById('privacy-page').classList.add('active');
+            } else if (page === 'terms') {
+                document.getElementById('terms-page').classList.add('active');
+            } else if (page === 'settings') {
+                document.getElementById('settings-page').classList.add('active');
+            } else {
+                // إذا فتح الصفحة مباشرة بدون اختيار، يظهر الخصوصية كافتراضي
+                document.getElementById('privacy-page').classList.add('active');
+            }
+        }
+
+        // تشغيل الدالة فور تحميل الصفحة
+        window.onload = showRequestedPage;
+    </script>
+</body>
+</html>
