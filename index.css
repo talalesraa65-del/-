@@ -110,3 +110,38 @@ input, textarea {
     text-align: right;
     direction: rtl;
 }
+/* الكود ده هيتنفذ تلقائياً لما الشاشة تصغر وتكون مناسبة للموبايل */
+@media (max-width: 768px) {
+    
+    /* 1. إخفاء الهيدر (Navbar) الأساسي الكبير بتاع اللاب توب */
+    .navigation-container1, 
+    .navigation-container2 {
+        display: none !important;
+    }
+
+    /* 2. إظهار الهيدر (Navbar) المخصص للموبايل */
+    .navigation-container3 {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100% !important;
+        padding: 10px 20px;
+    }
+
+    /* 3. جعل عناصر الموقع (السكشنز والكروت) تنزل تحت بعض بدل ما تكون مضغوطة بالعرض */
+    .main-container, 
+    .row, 
+    .grid-layout {
+        flex-direction: column !important;
+        display: flex !important;
+    }
+
+    /* 4. ضبط عرض الصور والعناصر الكبيرة عشان ما تخرجش بره الشاشة بالعرض */
+    .section, 
+    .card, 
+    img {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+}
