@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجمع شبراملس الطبي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+            padding-bottom: 60px;
+        }
+
+        /* تنسيق أزرار الفلتر العلوي */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 30px 20px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-radius: 0 0 30px 30px;
+            max-width: 90%;
+            margin: 0 auto 40px auto;
+        }
+
+        .filter-btn {
+            background: #f5f5f5;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #005691;
+            color: #fff;
+        }
+
+        /* شبكة الكروت المختصرة */
+        .clinics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .clinic-card {
+            background: #fff;
+            border: 1px solid #eef2f5;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .clinic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background-color: #eef9f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+        }
+
+        .clinic-icon {
+            width: 45px;
+            height: 45px;
+            fill: #114b5f;
+        }
+
+        .clinic-card h3 {
+            font-size: 1.4rem;
+            color: #1a2530;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .clinic-card p {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            height: 50px;
+        }
+
+        .details-btn {
+            display: inline-block;
+            padding: 10px 35px;
+            border: 2px solid #005691;
+            color: #005691;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .details-btn:hover {
+            background: #005691;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .home-container1 {
+        padding-top: 0px !important;
+        margin-top: 0px !important;
+    }
+    .custom-nav-container {
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .custom-nav-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    .custom-nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #333333;
+    }
+    .custom-nav-logo-icon {
+        color: #007bff;
+        display: flex;
+        align-items: center;
+    }
+    .custom-nav-brand-text {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .custom-nav-brand-text span {
+        color: #007bff;
+    }
+    .custom-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    .custom-nav-links a {
+        text-decoration: none;
+        color: #555555;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        font-size: 1rem;
+    }
+    .custom-nav-links a:hover {
+        color: #007bff;
+    }
+    .custom-nav-btn {
+        background-color: #0056b3;
+        color: #ffffff !important;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+    }
+    .custom-nav-btn:hover {
+        background-color: #004085;
+        transform: translateY(-1px);
+    }
+    @media (max-width: 768px) {
+        .custom-nav-links { gap: 15px; }
+        .custom-nav-brand-text { font-size: 1rem; }
+        .custom-nav-btn { padding: 8px 16px; font-size: 0.9rem; }
+    }
+</style>
+
+<div class="custom-nav-container">
+    <div class="custom-nav-wrapper">
+        <a href="index.html" class="custom-nav-brand">
+            <div class="custom-nav-logo-icon">
+                <svg width="24" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
+                    <path d="M21 21-15.005A2 2 0 0 1 4 19.2V2.803L6.572 5.402a2 2 0 0 0 2.732.732l-.873.138a2 2 0 0 0 .805 2.594L5.999 12l-2.427 1.402a2 2 0 0 0-.732 2.732l1.732 1.003l2.32a2 2 0 0 0 2.649.6L9 17.196V20a2 2 0 0 0 2 2h2l1.15-2a2 2 0 0 0 1.5-2.004l2.428 1.403a2 2 0 0 0 2.732-.732l1-1.732l1-1.732a2 2 0 0 0-.805-2.594L18 12l2.428-1.402a2 2 0 0 0 .732-2.732l-1-1.732l-1-1.732a2 2 0 0 0-2.649-.6L15 6.02V4n2 2a2 2 0 0 0 2-2z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <span class="custom-nav-brand-text">المجمع الطبي <span>بشبراملس</span></span>
+        </a>
+
+        <div class="custom-nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="about the complex.html">عن المجمع</a>
+            <a href="clinics.html">العيادات</a>
+            <a href="emergency.html">فريقنا الطبي</a>
+            <a href="about the complex.html#bookingForm" class="custom-nav-btn">احجز الآن</a>
+        </div>
+    </div>
+</div>
+    <main class="clinics-grid">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    .clinics-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 40px 20px;
+        direction: rtl;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .clinic-card {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        padding: 30px 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #f0f0f0;
+    }
+    .clinic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .clinic-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background-color: #e6f2ff; /* الخلفية الهادية المريحة للعين */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px auto;
+        transition: background-color 0.3s ease;
+    }
+    .clinic-card:hover .clinic-icon-wrapper {
+        background-color: #007bff;
+    }
+    .clinic-card:hover .clinic-icon-wrapper i {
+        color: #ffffff !important; /* الأيقونة تقلب أبيض عند الهوفر */
+    }
+    .clinic-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 12px;
+    }
+    .clinic-desc {
+        font-size: 0.95rem;
+        color: #666666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        height: 50px;
+    }
+    .clinic-btn {
+        display: inline-block;
+        padding: 10px 25px;
+        border: 2px solid #007bff;
+        color: #007bff;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .clinic-btn:hover {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+</style>
+
+<div class="clinics-grid-container">
+
+    <div class="clinic-card">
+        <div class="clinic-icon-wrapper">
+            <i class="fas fa-eye" style="font-size: 35px; color: #007bff; transition: color 0.3s;"></i>
+        </div>
+        <div class="clinic-title">عيادة العيون</div>
+        <div class="clinic-desc">رؤية واضحة وحياة أجمل مع أحدث تقنيات طب العيون.</div>
+       <a href="detalis.html#eyes-clinic" class="clinic-btn">عرض التفاصيل</a>
+    </div>
+
+    <div class="clinic-card">
+        <div class="clinic-icon-wrapper">
+            <i class="fas fa-notes-medical" style="font-size: 35px; color: #007bff; transition: color 0.3s;"></i>
+        </div>
+        <div class="clinic-title">عيادة المسالك البولية</div>
+        <div class="clinic-desc">علاج وتشخيص دقيق لأمراض الكلى والمسالك البولية.</div>
+        <a href="detalis.html#urology-clinic" class="clinic-btn">عرض التفاصيل</a>
+    </div>
+
+    <div class="clinic-card">
+        <div class="clinic-icon-wrapper">
+            <i class="fas fa-microscope" style="font-size: 35px; color: #007bff; transition: color 0.3s;"></i>
+        </div>
+        <div class="clinic-title">عيادة المناظير</div>
+        <div class="clinic-desc">دقة عالية وشفاء أسرع مع خبراء جراحة المناظير.</div>
+        <a href="detalis.html#endoscopy-clinic" class="clinic-btn">عرض التفاصيل</a>
+    </div>
+
+    <div class="clinic-card">
+        <div class="clinic-icon-wrapper">
+            <i class="fas fa-brain" style="font-size: 35px; color: #007bff; transition: color 0.3s;"></i>
+        </div>
+        <div class="clinic-title">عيادة أمراض المخ والأعصاب</div>
+        <div class="clinic-desc">رعاية متقدمة لحالات المخ والأعصاب والعمود الفقري.</div>
+        <a href="detalis.html#neurology-clinic" class="clinic-btn">عرض التفاصيل</a>
+    </div>
+
+    <div class="clinic-card">
+        <div class="clinic-icon-wrapper">
+            <i class="fas fa-bone" style="font-size: 35px; color: #007bff; transition: color 0.3s;"></i>
+        </div>
+        <div class="clinic-title">عيادة جراحة العظام</div>
+        <div class="clinic-desc">علاج متكامل لكافة مشاكل العظام والمفاصل والكسور.</div>
+        <a href="detalis.html#orthopedics-clinic" class="clinic-btn">عرض التفاصيل</a>
+    </div>
+
+    <div class="clinic-card">
+        <div class="clinic-icon-wrapper">
+            <i class="fas fa-stethoscope" style="font-size: 35px; color: #007bff; transition: color 0.3s;"></i>
+        </div>
+        <div class="clinic-title">عيادة الباطنة</div>
+        <div class="clinic-desc">متابعة وفحص دقيق للأمراض المزمنة والصحة العامة.</div>
+        <a href="detalis.html#internal-clinic" class="clinic-btn">عرض التفاصيل</a>
+    </div>
+
+</div>
+        
+            </main>
+
+</body>
+</html>

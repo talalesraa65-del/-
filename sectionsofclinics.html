@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الأقسام والعيادات التخصصية</title>
+    <style>
+        /* إعدادات الخطوط والصفحة العامة */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+            scroll-behavior: smooth; /* تجعل التنقل بين الأقسام انسيابي وناعم */
+        }
+
+        /* زر ثابت للعودة للصفحة الرئيسية */
+        .back-to-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #005691;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .back-to-home:hover {
+            background-color: #005691;
+            color: #fff;
+        }
+
+        /* تنسيق الهيكل العام لكل قسم */
+        .clinic-section {
+            padding-bottom: 60px;
+            border-bottom: 2px solid #eee;
+        }
+
+        /* البانر العلوي الأزرق للعيادة */
+        .details-banner {
+            background: linear-gradient(135deg, #00467f, #0073e6);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* تمييز القسم الذي تم الانتقال إليه بتأثير خفيف */
+        .clinic-section:target .details-banner {
+            animation: highlight 1.5s ease-in-out;
+        }
+
+        @keyframes highlight {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .banner-overlay {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .details-banner h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #f0c24d; /* اللون الذهبي المميز */
+        }
+
+        .details-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* محتوى تفاصيل الخدمات */
+        .details-content {
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            padding: 0 20px;
+        }
+
+        .details-content h2 {
+            color: #005691;
+            margin: 30px 0 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* قائمة الخدمات */
+        .services-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .services-list li {
+            font-size: 1.05rem;
+            padding: 12px 40px 12px 0;
+            position: relative;
+            color: #444;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* علامة الصح المخصصة لكل قائمة */
+        .services-list li::before {
+            content: "✓";
+            position: absolute;
+            right: 10px;
+            color: #c5a880; /* لون ذهبي هادئ */
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* بنر احجز موعدك التفاعلي */
+        .booking-cta {
+            background-color: #004c82;
+            border-radius: 16px;
+            padding: 30px 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 24px rgba(0,76,130,0.15);
+        }
+
+        .cta-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .cta-text p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .book-btn {
+            background-color: #c5a880;
+            color: #004c82;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: #b3956b;
+        }
+
+        @media (max-width: 768px) {
+            .booking-cta {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .back-to-home {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                padding: 6px 14px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-to-home">← العودة للرئيسية</a>
+
+    <section id="eye-details" class="clinic-section">
+        <div class="details-banner">
+            <div class="banner-overlay">
+                <span class="breadcrumb">الرئيسية / الأقسام الطبية / العيون</span>
+                <h1>عيادة أمراض العيون</h1>
+                <p>رؤية واضحة ورعاية متكاملة لصحة العين وتصحيح الإبصار بأحدث التقنيات</p>
+            </div>
+        </div>
+        <div class="details-content">
+            <h2>عن العيادة</h2>
+            <p class="about-text">
+                عيادة متخصصة في العناية الشاملة بالعين، توفر الفحوصات العيونية الدقيقة وعلاج جميع مشاكل وأمراض الإبصار وعمليات الليزر لتصحيح النظر تحت إشراف نخبة من الاستشاريين.
+            </p>
+            <h2>الخدمات التي تقدمها العيادة:</h2>
+            <ul class="services-list">
+                <li>الفحوصات الشاملة وقاع العين وقياس ضغط العين الدقيق.</li>
+                <li>عمليات تصحيح النظر والعيوب الانكسارية بالليزك والامتياز الفيمتو ليزك.</li>
+                <li>علاج وإزالة المياه البيضاء والمياه الزرقاء (الجلوكوما).</li>
+                <li>متابعة وعلاج اعتلال الشبكية السكري ومشاكل النظر لدى الأطفال.</li>
+            </ul>
+            <div class="booking-cta">
+                <div class="cta-text">
+                    <h3>احجز موعدك الآن في عيادة العيون</h3>
+                    <p>احصلي على فحص شامل واطمني على نظرك مع أفضل الخبراء.</p>
+                </div>
+                <button class="book-btn">احجز موعدك</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="urology-details" class="clinic-section">
+        <div class="details-banner">
+            <div class="banner-overlay">
+                <span class="breadcrumb">الرئيسية / الأقسام الطبية / المسالك البولية</span>
+                <h1>عيادة المسالك البولية</h1>
+                <p>تشخيص دقيق وعلاجات متطورة لكافة أمراض الكلى والمسالك البولية والتناسلية</p>
+            </div>
+        </div>
+        <div class="details-content">
+            <h2>عن العيادة</h2>
+            <p class="about-text">
+                تقدم العيادة خدمات تشخيصية وعلاجية متكاملة لجميع أمراض الجهاز البولي للأنسجة والرجال والأطفال، باستخدام أحدث مناظير المسالك البولية وتفتيت الحصوات.
+            </p>
+            <h2>الخدمات التي تقدمها العيادة:</h2>
+            <ul class="services-list">
+                <li>علاج وتفتيت حصوات الكلى، الحالب، والمثانة بدون جراحة وبأحدث الموجات.</li>
+                <li>تشخيص وعلاج أمراض وتضخم البروستاتا لدى الرجال.</li>
+                <li>علاج الالتهابات الحادة والمزمنة في مجرى البول والجهاز التناسلي.</li>
+                <li>مناظير المسالك البولية التشخيصية والعلاجية المتقدمة.</li>
+            </ul>
+            <div class="booking-cta">
+                <div class="cta-text">
+                    <h3>احجز موعدك الآن في عيادة المسالك</h3>
+                    <p>رعاية طبية تضمن لك الراحة والخصوصية التامة مع أطباء متخصصين.</p>
+                </div>
+                <button class="book-btn">احجز موعدك</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="internal-details" class="clinic-section">
+        <div class="details-banner">
+            <div class="banner-overlay">
+                <span class="breadcrumb">الرئيسية / الأقسام الطبية / الباطنة العامة</span>
+                <h1>عيادة أمراض الباطنة</h1>
+                <p>المستشار الطبي الأول لصحتك، تشخيص ومتابعة الأمراض المزمنة بمهنية عالية</p>
+            </div>
+        </div>
+        <div class="details-content">
+            <h2>عن العيادة</h2>
+            <p class="about-text">
+                تعتبر عيادة الباطنة الركيزة الأساسية للتشخيص المبكر؛ حيث تهتم بمتابعة الأمراض النظامية والمزمنة ووضع خطط علاجية شاملة تتناسب مع الحالة الصحية لكل مريض.
+            </p>
+            <h2>الخدمات التي تقدمها العيادة:</h2>
+            <ul class="services-list">
+                <li>ضبط ومتابعة مرضى السكري من النوعين الأول والثاني وتجنب مضاعفاته.</li>
+                <li>تشخيص وعلاج حالات ارتفاع وانخفاض ضغط الدم وأمراض القلب الشريانية.</li>
+                <li>علاج اضطرابات الجهاز الهضمي، القولون العصبي، وقرحة المعدة.</li>
+                <li>فحص وعلاج اضطرابات الغدة الدرقية والغدد الصماء ونقص الفيتامينات.</li>
+            </ul>
+            <div class="booking-cta">
+                <div class="cta-text">
+                    <h3>احجز موعدك الآن في عيادة الباطنة</h3>
+                    <p>خطوتك الأولى نحو حياة صحية خالية من الإرهاق والأمراض المزمنة.</p>
+                </div>
+                <button class="book-btn">احجز موعدك</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="orthopedics-details" class="clinic-section">
+        <div class="details-banner">
+            <div class="banner-overlay">
+                <span class="breadcrumb">الرئيسية / الأقسام الطبية / جراحة العظام</span>
+                <h1>عيادة جراحة العظام</h1>
+                <p>استعد حرية حركتك ونشاطك بدون ألم مع أحدث تقنيات جراحة العظام والمفاصل</p>
+            </div>
+        </div>
+        <div class="details-content">
+            <h2>عن العيادة</h2>
+            <p class="about-text">
+                تضم العيادة أحدث التجهيزات لعلاج كافة مشاكل الجهاز الحركي، الكسور، إصابات الملاعب، وخشونة المفاصل لتستعيد قدرتك على ممارسة حياتك الطبيعية بمرونة كاملة.
+            </p>
+            <h2>الخدمات التي تقدمها العيادة:</h2>
+            <ul class="services-list">
+                <li>علاج خشونة الركبة والمفاصل وحقن المفاصل الموضعي والجيلاتيني.</li>
+                <li>تشخيص وعلاج آلام الظهر، الرقبة، الانزلاق الغضروفي، وعرق النسا.</li>
+                <li>متابعة وتثبيت الكسور جراحياً وبدون جراحة (الجبائر الحديثة).</li>
+                <li>علاج إصابات الملاعب، قطع الرباط الصليبي، ومشاكل الأوتار.</li>
+            </ul>
+            <div class="booking-cta">
+                <div class="cta-text">
+                    <h3>احجز موعدك الآن في عيادة العظام</h3>
+                    <p>لا تستسلم للألم، تواصل معنا الآن وتحرك بكل ثقة ومرونة.</p>
+                </div>
+                <button class="book-btn">احجز موعدك</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="neurology-details" class="clinic-section">
+        <div class="details-banner">
+            <div class="banner-overlay">
+                <span class="breadcrumb">الرئيسية / الأقسام الطبية / المخ والأعصاب</span>
+                <h1>عيادة أمراض المخ والأعصاب</h1>
+                <p>رعاية طبية فائقة لتشخيص وعلاج اضطرابات الجهاز العصبي المركزي والطرفي</p>
+            </div>
+        </div>
+        <div class="details-content">
+            <h2>عن العيادة</h2>
+            <p class="about-text">
+                نقدم تشخيصاً دقيقاً وعلاجاً لأمراض الدماغ، الحبل الشوكي، والأعصاب الطرفية باستخدام أحدث البروتوكولات العلاجية العالمية لضمان سلامة واستقرار المريض.
+            </p>
+            <h2>الخدمات التي تقدمها العيادة:</h2>
+            <ul class="services-list">
+                <li>علاج حالات الصداع المزمن والنصفي واضطرابات النوم والذاكرة.</li>
+                <li>تشخيص ومتابعة حالات الصرع والتشنجات الكهربائية للمخ.</li>
+                <li>التعامل مع حالات السكتات الدماغية، التهاب الأعصاب الطرفية، والوهن العضلي.</li>
+                <li>متابعة أمراض الشلل الرعاش (باركنسون) والتصلب المتعدد (MS).</li>
+            </ul>
+            <div class="booking-cta">
+                <div class="cta-text">
+                    <h3>احجز موعدك الآن في عيادة المخ والأعصاب</h3>
+                    <p>نوفر لك ولعائلتك تشخيصاً مبكراً ورعاية تدوم لسلامة جهازك العصبي.</p>
+                </div>
+                <button class="book-btn">احجز موعدك</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

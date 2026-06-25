@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجمع الطبي بشبراملس - الرعاية الطبيه</title>
+    <!-- استدعاء خطوط مناسبة ومكتبة الأيقونات لتشغيل الـ Icons والدائرة الصغيرة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- 1. التنسيقات العامة للموقع --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .btn-primary {
+            background-color: #005a9c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #004473;
+        }
+
+        /* --- زر الواتساب العائم الموجود بكل الصور --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* --- 2. قسم الهيدر / التعريف (Screenshot 2) --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+            background-color: #ffffff;
+            gap: 40px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 85%;
+            border-radius: 10px;
+        }
+        .hero-content {
+            flex: 1.2;
+        }
+        .badge {
+            background-color: #eaf6ed;
+            color: #2d8a4e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid #d4eedb;
+        }
+        .hero-content h1 {
+            color: #005a9c;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        /* --- 3. قسم المميزات الثلاثة (Screenshot 3) --- */
+        .features-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 80px 10%;
+            background-color: #f4f7f6;
+        }
+        .feature-card {
+            background: #ffffff;
+            border-top: 4px solid #005a9c;
+            border-radius: 15px;
+            padding: 50px 25px 30px 25px;
+            text-align: center;
+            flex: 1;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+        .feature-card .icon-box {
+            width: 65px;
+            height: 65px;
+            background-color: #eaf3f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -32.5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid #d0e2f0;
+        }
+        .feature-card .icon-box i {
+            font-size: 24px;
+            color: #005a9c;
+        }
+        /* لتغيير لون الدائرة الخاصة بالأيقونة الوسطى واليسرى حسب الصورة */
+        .feature-card.alt-icon .icon-box { background-color: #fff9eb; border-color: #ffe8bd; }
+        .feature-card.alt-icon .icon-box i { color: #f1b434; }
+        
+        .feature-card.alt-icon2 .icon-box { background-color: #eaf7f5; border-color: #d1efea; }
+        .feature-card.alt-icon2 .icon-box i { color: #2bb69b; }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #111;
+            font-size: 1.3rem;
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- 4. قسم أقسام العيادات المشترك (Screenshot 4 & 5) --- */
+        .departments-section {
+            padding: 80px 10%;
+            text-align: center;
+            background: #ffffff;
+        }
+        .section-header h2 {
+            color: #005a9c;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #bfa15f;
+            margin: 10px auto 0 auto;
+        }
+        .section-header p {
+            color: #777;
+            margin-bottom: 50px;
+        }
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .dept-card {
+            background: #ffffff;
+            border: 1px solid #ececec;
+            border-radius: 20px;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+        .dept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        .dept-card.gold-border {
+            border-color: #bfa15f;
+        }
+        .dept-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dept-icon i {
+            font-size: 50px;
+            color: #005a9c;
+        }
+        .dept-card h4 {
+            font-size: 1.4rem;
+            color: #111;
+            margin-bottom: 15px;
+        }
+        .dept-card p {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        .btn-outline {
+            border: 2px solid #005a9c;
+            color: #005a9c;
+            padding: 8px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background-color: #005a9c;
+            color: #fff;
+        }
+
+        /* --- 5. قسم بنر "احجز موعدك الآن" (Screenshot 6) --- */
+        .cta-banner {
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://via.placeholder.com/1920x600'); /* يمكن استبدالها بخلفية العيادة */
+            background-size: cover;
+            background-position: center;
+            padding: 100px 10%;
+            display: flex;
+            justify-content: center;
+        }
+        .cta-box {
+            background: white;
+            padding: 50px 80px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        .cta-box h2 {
+            color: #005a9c;
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+        .cta-box p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* --- 6. قسم الفورم وحجز الموعد (Screenshot 7) --- */
+        .booking-section {
+            display: flex;
+            background-color: #f8fafc;
+            min-height: 550px;
+        }
+        .booking-info-side {
+            flex: 1;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('doctor.jpeg'); /* صوره الدكتورة بالأشعة */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
+        .info-overlay-card {
+            background-color: #1e293b;
+            color: white;
+            padding: 30px;
+            width: 100%;
+            border-radius: 4px;
+        }
+        .info-overlay-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        .info-overlay-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+        .booking-form-side {
+            flex: 1.2;
+            padding: 60px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .booking-form-side h2 {
+            color: #1e293b;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+        .btn-submit {
+            background-color: #1e293b;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-submit:disabled {
+            background-color: #64748b;
+            cursor: not-allowed;
+        }
+        .btn-submit:hover:not(:disabled) {
+            background-color: #0f172a;
+        }
+
+        /* متوافق مع الشاشات الصغيرة والموبايل */
+        @media (max-width: 992px) {
+            .hero-section, .features-section, .booking-section { flex-direction: column; }
+            .departments-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+        }
+        @media (max-width: 768px) {
+            .departments-grid { grid-template-columns: 1fr; }
+            .cta-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .home-container1 {
+        padding-top: 0px !important;
+        margin-top: 0px !important;
+    }
+    .custom-nav-container {
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .custom-nav-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    .custom-nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #333333;
+    }
+    .custom-nav-logo-icon {
+        color: #007bff;
+        display: flex;
+        align-items: center;
+    }
+    .custom-nav-brand-text {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .custom-nav-brand-text span {
+        color: #007bff;
+    }
+    .custom-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    .custom-nav-links a {
+        text-decoration: none;
+        color: #555555;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        font-size: 1rem;
+    }
+    .custom-nav-links a:hover {
+        color: #007bff;
+    }
+    .custom-nav-btn {
+        background-color: #0056b3;
+        color: #ffffff !important;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+    }
+    .custom-nav-btn:hover {
+        background-color: #004085;
+        transform: translateY(-1px);
+    }
+    @media (max-width: 768px) {
+        .custom-nav-links { gap: 15px; }
+        .custom-nav-brand-text { font-size: 1rem; }
+        .custom-nav-btn { padding: 8px 16px; font-size: 0.9rem; }
+    }
+</style>
+
+<div class="custom-nav-container">
+    <div class="custom-nav-wrapper">
+        <a href="index.html" class="custom-nav-brand">
+            <div class="custom-nav-logo-icon">
+                <svg width="24" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
+                    <path d="M21 21-15.005A2 2 0 0 1 4 19.2V2.803L6.572 5.402a2 2 0 0 0 2.732.732l-.873.138a2 2 0 0 0 .805 2.594L5.999 12l-2.427 1.402a2 2 0 0 0-.732 2.732l1.732 1.003l2.32a2 2 0 0 0 2.649.6L9 17.196V20a2 2 0 0 0 2 2h2l1.15-2a2 2 0 0 0 1.5-2.004l2.428 1.403a2 2 0 0 0 2.732-.732l1-1.732l1-1.732a2 2 0 0 0-.805-2.594L18 12l2.428-1.402a2 2 0 0 0 .732-2.732l-1-1.732l-1-1.732a2 2 0 0 0-2.649-.6L15 6.02V4n2 2a2 2 0 0 0 2-2z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <span class="custom-nav-brand-text">المجمع الطبي <span>بشبراملس</span></span>
+        </a>
+
+        <div class="custom-nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="about the complex.html">عن المجمع</a>
+            <a href="clinics.html">العيادات</a>
+            <a href="emergency.html">فريقنا الطبي</a>
+            <a href="about the complex.html#bookingForm" class="custom-nav-btn">احجز الآن</a>
+        </div>
+    </div>
+</div>
+
+    <!-- زر الواتساب العائم -->
+    <a href="#" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ================= القسم الأول: الهيدر والتعريف ================= -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge">الخيار الأول لصحتك</span>
+            <h1>المجمع الطبي بشبراملس</h1>
+            <p>مجمع عيادات طبية متكامل يضم كافة المجالات الطبية  التي تحتاجها جميعاً في مكان واحد، تحت إشراف مجموعة من أكفأ الأطباء والاستشاريين، وباستخدام أحدث الأجهزة والتقنيات الطبية لتحقيق أفضل معدلات الرعاية الصحية لنضمن لك تجربة مميزة وناجحة لحياة أكثر صحة.</p>
+            <a href="about the complex.html#bookingForm" class="btn-primary">احجز موعدك الآن</a>
+        </div>
+        <div class="hero-image">
+            <!-- يمكنك استبدال رابط السورس بملف لوجو العيادة الذهبي الخاص بكِ -->
+            <img src="images.jpeg.html" alt="شعار عيادات مصر الحديثة">
+        </div>
+    </section>
+
+
+    <!-- ================= القسم الثاني: المميزات الثلاثة ================= -->
+    <section class="features-section">
+        <!-- الكارت الأول -->
+        <div class="feature-card alt-icon">
+            <div class="icon-box">
+                <i class="far fa-star"></i>
+            </div>
+            <h3>رعاية متكاملة</h3>
+            <p>نوفر كافة المجالات الطبية  في مكان واحد لتوفير وقتك وجهدك وضمان راحة أسرتك.</p>
+        </div>
+
+        <!-- الكارت الثاني -->
+        <div class="feature-card">
+            <div class="icon-box">
+                <i class="fas fa-user-md"></i>
+            </div>
+            <h3>أكفأ الاستشاريين</h3>
+            <p>نعمل تحت إشراف مجموعة من أمهر وأكفأ الأطباء والاستشاريين ذوي الخبرات المحلية والدولية العالية.</p>
+        </div>
+
+        <!-- الكارت الثالث -->
+        <div class="feature-card alt-icon2">
+            <div class="icon-box">
+                <i class="fas fa-microscope"></i>
+            </div>
+            <h3>أحدث التقنيات</h3>
+            <p>نعتمد على أحدث الأجهزة والتقنيات الطبية الحديثة لتحقيق أدق التشخيصات وأفضل معدلات الشفاء والتعافي.</p>
+        </div>
+    </section>
+
+
+    <!-- ================= القسم الثالث: أبرز أقسامنا الطبية ================= -->
+    <section class="departments-section">
+        <div class="section-header">
+            <h2>أبرز أقسامنا الطبية</h2>
+            <p>نقدم لك خدمات تشخيصية وعلاجية شاملة تغطي كافة احتياجاتك الطبية من خلال عياداتنا المجهزة.</p>
+        </div>
+
+        <!-- شبكة العيادات: الصف الأول -->
+        <div class="departments-grid">
+            <div class="dept-card">
+                <div class="dept-icon"><i class="fas fa-stethoscope"></i></div>
+                <h4>الباطنة العامة والغدد الصماء</h4>
+                <p>تشخيص وعلاج أمراض الباطنة والسكري واضطرابات الغدد الصماء والمتابعة الدورية.</p>
+                <a href="#" class="btn-outline">عرض التفاصيل</a>
+            </div>
+
+            <div class="dept-card">
+                <div class="dept-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4>أمراض القلب والأوعية الدموية</h4>
+                <p>رعاية شاملة لصحة قلبك، وإجراء القسطرة الدقيقة والتدخلات القلبية بأمان تام.</p>
+                <a href="#" class="btn-outline">عرض التفاصيل</a>
+            </div>
+
+            <div class="dept-card">
+                <div class="dept-icon"><i class="fas fa-bone"></i></div>
+                <h4>جراحة العظام والمفاصل</h4>
+                <p>علاج دقيق لكافة مشاكل العظام، تغيير المفاصل، وإصابات الملاعب المعقدة.</p>
+                <a href="#" class="btn-outline">عرض التفاصيل</a>
+            </div>
+        </div>
+
+        <!-- شبكة العيادات: الصف الثاني -->
+        <div class="departments-grid">
+            <div class="dept-card"> <!-- الكارد المميز ببرواز ذهبي كما بالصورة -->
+                <div class="dept-icon"><i class="fas fa-baby"></i></div>
+                <h4>طب الأطفال وحديثي الولادة</h4>
+                <p>رعاية صحية متكاملة لنمو صغارك وتطورهم، ومتابعة المبتسرين بأعلى معايير الأمان.</p>
+                <a href="#" class="btn-outline">عرض التفاصيل</a>
+            </div>
+
+            <div class="dept-card">
+                <div class="dept-icon"><i class="fas fa-female"></i></div>
+                <h4>أمراض النساء والتوليد</h4>
+                <p>متابعة الحمل، الولادة الآمنة، وعلاجات تأخر الإنجاب بأحدث البروتوكولات.</p>
+                <a href="#" class="btn-outline">عرض التفاصيل</a>
+            </div>
+
+            <div class="dept-card">
+                <div class="dept-icon"><i class="fas fa-procedures"></i></div>
+                <h4>الجراحة العامة والمناظير</h4>
+                <p>علاج شامل لمختلف الحالات الجراحية باستخدام أحدث تقنيات المناظير الطبية.</p>
+                <a href="#" class="btn-outline">عرض التفاصيل</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="#" class="btn-primary" style="padding: 15px 45px;">تصفح جميع العيادات</a>
+        </div>
+    </section>
+
+
+    <!-- ================= القسم الرابع: بنر الحجز السريع ================= -->
+    <section class="cta-banner">
+        <div class="cta-box">
+            <h2>احجز موعدك الآن</h2>
+            <p>قم بتعبئة النموذج التالي وسيقوم فريقنا بالتواصل معك لتأكيد الموعد</p>
+            <a href="about the complex.html#bookingForm">
+                <button type="submit" id="submitBtn" class="btn-submit">احجز الآن</button>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ================= القسم الخامس: نموذج الحجز والفورم ================= -->
+    <section class="booking-section">
+        <!-- الجانب الأيمن: الصورة والبنر الغامق -->
+        <div class="booking-info-side">
+            <div class="info-overlay-card">
+                <h3>مجمع شبراملس الطبي</h3>
+                <p>مجمع عيادات طبية متكامل يضم كافة المجالات الطبية</p>
+            </div>
+        </div>
+
+        <!-- الجانب الأيسر: الفورم -->
+        <div class="booking-form-side">
+            <h2>احجز موعدك الآن</h2>
+            <form id="bookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="clientName" placeholder="الاسم" required >
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="clientPhone" placeholder="رقم الموبايل" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="clientEmail" placeholder="البريد الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <select id="clinicType" required>
+                            <option value="" disabled selected>اختر العيادة</option>
+                            <option value="عيادة المناظير">عيادة المناظير</option>
+                            <option value="عيادة الباطنة">عيادة الباطنة</option>
+                            <option value="عيادة الأطفال">عيادة الأطفال</option>
+                            <option value="عيادة العظام">عيادة العظام</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <input type="text" id="bookingTime" placeholder="تاريخ / وقت / يوم الحجز">
+                    </div>
+                    <div class="form-group full-width">
+                        <textarea id="clientMessage" placeholder="رسالتك"></textarea>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-submit">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- الـ JavaScript الخاص بعملية الربط بالإكسل -->
+    <script>
+        const form = document.querySelector('#bookingForm');
+        const submitBtn = document.querySelector('#submitBtn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // تغيير نص الزر وتأمين العملية أثناء الإرسال
+            submitBtn.textContent = 'جاري الإرسال...';
+            submitBtn.disabled = true;
+
+            // تجميع البيانات من الحقول
+            const formData = {
+                name: document.querySelector('#clientName').value,
+                phone: document.querySelector('#clientPhone').value,
+                email: document.querySelector('#clientEmail').value || 'لا يوجد',
+                clinic: document.querySelector('#clinicType').value,
+                time: document.querySelector('#bookingTime').value || 'لم يحدد',
+                message: document.querySelector('#clientMessage').value || 'لا يوجد'
+            };
+
+            // الروابط البرمجية لـ Google Apps Script
+            // ضَع رابط السكربت الخاص بك هنا بين علامتي التنصيص
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxXAn3UmpLtiTwHdvDSU8xTrVRRFjRXR9n3rdMg-wmHgrN2ojAiKQBW8cKD6nmHCdiwhg/exec"
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // لتفادي مشاكل الـ CORS في المتصفحات
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                alert('تم تسجيل طلب الحجز الخاص بك بنجاح! سيتواصل معك فريقنا قريباً.');
+                form.reset(); // إفراغ الحقول بعد النجاح
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+            })
+            .finally(() => {
+                // إعادة الزر لوضعه الطبيعي
+                submitBtn.textContent = 'إرسال';
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
