@@ -145,3 +145,33 @@ input, textarea {
         box-sizing: border-box;
     }
 }
+@media (max-width: 768px) {
+    /* نخلي الحاوية الرئيسية ترتب العناصر رأسيًا */
+    .custom-nav-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* تكنتر العناصر في النص */
+        gap: 15px; /* مسافة بين اللوجو واللينكات */
+        padding: 10px 0;
+    }
+
+    /* نخلي اللينكات تحت بعضها أو متوزعة كويس وتظهر بالكامل */
+    .custom-nav-links {
+        display: flex;
+        flex-wrap: wrap; /* لو المساحة مكفتش تنزل سطر جديد */
+        justify-content: center;
+        align-items: center;
+        gap: 10px; /* مسافة بين اللينكات */
+        width: 100%;
+    }
+
+    /* نضمن إن زرار احجز الآن يظهر بشكل واضح */
+    .custom-nav-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #1e3a8a; /* لون افتراضي زرق للزرار */
+        color: #fff !important;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+}
